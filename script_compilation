@@ -1,5 +1,8 @@
 #!/bin/bash
-
+echo " ==== "
+echo " Proudly powered by Maximilien Levesque and PersonalHPC "
+echo " Comments, bug-reports : contact@personalhpc.com"
+echo " ==== "
 git clone https://github.com/lammps/lammps mylammps
 
 cd mylammps/src
@@ -15,5 +18,13 @@ cd ../../   # I should be in mylammps/src/
 make -j16 personalhpc
 
 mv lmp_personalhpc mylammps
+
+echo "... OK. Everything's fine"
+echo "Your LAMMPS executable is `pwd`/mylammps"
+echo "      "
+echo " ==== "
+echo " Proudly powered by Maximilien Levesque and PersonalHPC "
+echo " Comments, bug-reports : contact@personalhpc.com"
+echo " ==== "
 
 # LAMMPS is now compiled. It is called mylammps and can be found in mylammps/src/.
