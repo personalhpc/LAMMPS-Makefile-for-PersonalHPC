@@ -1,0 +1,19 @@
+#!/bin/bash
+
+git clone https://github.com/lammps/lammps mylammps
+
+cd mylammps/src
+
+# compile packages that you need. This is user-specific. Here that's OK for what I am aware you typically use.
+make yes-asphere yes-body yes-class2 yes-colloid yes-dipole yes-fld yes-granular yes-kspace yes-manybody yes-mc yes-misc yes-molecule yes-mpiio yes-opt yes-peri yes-replica yes-rigid yes-shock yes-snap yes-srd yes-xtc
+
+cd MAKE/MACHINES
+wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/Makefile.personalhpc"   # proudly powered by Maximilien Levesque, for PersonalHPC
+
+cd ../../   # I should be in mylammps/src/
+
+make -j16 personalhpc
+
+mv lmp_personalhpc mylammps
+
+# LAMMPS is now compiled. It is called mylammps and can be found in mylammps/src/.
