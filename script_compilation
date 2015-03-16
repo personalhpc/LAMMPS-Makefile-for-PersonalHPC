@@ -28,3 +28,6 @@ echo " Comments, bug-reports : contact@personalhpc.com"
 echo " ==== "
 
 # LAMMPS is now compiled. It is called mylammps and can be found in mylammps/src/.
+
+# comment: If you are not certain MPI tasks are being bound (check the defaults for your MPI installation), binding can be forced with these flags:
+# OpenMPI 1.8: mpirun -np 2 -bind-to socket -map-by socket ./lmp_openmpi ...
