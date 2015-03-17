@@ -43,9 +43,9 @@ LMP_INC =	-DLAMMPS_GZIP -DLAMMPS_FFMPEG # -DLAMMPS_JPEG -DLAMMPS_PNG    ########
 # PATH = path for MPI library
 # LIB = name of MPI library
 
-MPI_INC =
-MPI_PATH = 
-MPI_LIB =
+MPI_INC = -D OMPI
+MPI_PATH = -J/opt/openmpi/lib  # faut-il mettre le mpi.h dedans ?
+MPI_LIB = -J/opt/openmpi/lib
 
 # FFT library
 # see discussion in Section 2.2 (step 6) of manaul
