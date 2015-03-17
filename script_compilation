@@ -3,6 +3,22 @@ echo " ==== "
 echo " Proudly powered by Maximilien Levesque and PersonalHPC "
 echo " Comments, bug-reports : contact@personalhpc.com"
 echo " ==== "
+
+# grab last version of openmpi, compile it, and move it to /opt/openmpi/bin and /opt/openmpi/lib
+git clone https://github.com/open-mpi/ompi.git
+cd ompi
+./autogen.pl
+mkdir build
+cd build
+../configure --prefix=/home/levesque/bin/ompi/build/install --exec-prefix=/home/levesque/bin/ompi/build/install-exec --with-platform=optimized
+make all install
+sudo mkdir -p /opt/openmpi/lib /opt/openmpi/bin
+sudo cp -rf install-exec/lib/* /opt/openmpi/lib/.
+sudo cp -rf install-exec/bin/* /opt/openmpi/bin/.
+sudo cp -rf install/include/mpi.h /opt/openmpi/lib/.
+# at this point, we have everything needed in /opt/openmpi
+
+# grab last version of lammps
 git clone https://github.com/lammps/lammps mylammps
 
 cd mylammps/src
