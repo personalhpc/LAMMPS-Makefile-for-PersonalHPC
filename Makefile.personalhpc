@@ -10,12 +10,12 @@ SHELL = /bin/sh
 # compiler/linker settings
 # specify flags and libraries needed for your compiler
 
-CC =		mpic++
+CC =		/opt/ompi/bin/mpic++
 CCFLAGS =	-g -O3 -march=native -mpc64  -fno-exceptions -fno-rtti  -ffast-math -funroll-loops -fstrict-aliasing
 SHFLAGS =	-fPIC
 DEPFLAGS =	-M
 
-LINK =		mpic++
+LINK =		/opt/ompi/bin/mpic++
 LINKFLAGS =	-g -O3 -march=native -mpc64  -fno-exceptions -fno-rtti  -ffast-math -funroll-loops -fstrict-aliasing
 LIB = 
 SIZE =		size
@@ -44,8 +44,8 @@ LMP_INC =	-DLAMMPS_GZIP -DLAMMPS_FFMPEG # -DLAMMPS_JPEG -DLAMMPS_PNG    ########
 # LIB = name of MPI library
 
 MPI_INC = -D OMPI
-MPI_PATH = -J/opt/openmpi/lib  # faut-il mettre le mpi.h dedans ?
-MPI_LIB = -J/opt/openmpi/lib
+MPI_PATH = -J/opt/ompi/lib -J/opt/ompi/include
+MPI_LIB = -J/opt/ompi/lib -J/opt/ompi/include
 
 # FFT library
 # see discussion in Section 2.2 (step 6) of manaul
