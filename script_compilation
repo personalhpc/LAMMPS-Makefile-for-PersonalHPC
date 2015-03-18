@@ -29,8 +29,8 @@ sudo mv lmp_personalhpc /opt/lammps/lammps
 
 testlammpsdir=/tmp/testlammps
 mkdir -p $testlammpsdir && cd $testlammpsdir
-wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/testlammps.in"
-wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/needed-by-testlammps.in"
+wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/lammpstest.in"
+wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/needed-by-lammpstest.in"
 
 echo "... OK. Everything's fine"
 echo "Your LAMMPS executable is /opt/lammps/lammps"
