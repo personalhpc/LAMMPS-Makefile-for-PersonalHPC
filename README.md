@@ -5,7 +5,7 @@ This script is aimed at installing the very last vertion of [LAMMPS](http://lamm
 This script comes without any warranty.
 
 ## Licence
-It's GPL. See accompagning LICENCE file.
+The MIT Licence applies. See accompagning LICENCE file.
 
 ## What this script does:
 - get latest openmpi sources from their git repo
