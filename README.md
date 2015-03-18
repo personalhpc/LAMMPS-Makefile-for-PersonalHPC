@@ -29,7 +29,7 @@ You should type in a terminal:
 /opt/ompi/bin/mpirun -np 64 /opt/lammps/lammps < inputfile
 ```
 where 64 is the number of cpu you want for your calculation.
-You may add an alias for `/opt/ompi/bin/mpirun`, as long as it is not `mpirun`
-You may add an alias for `/opt/lammps/lammps`, as long as it is not `lammps`
-Why not `mpirun-phpc` and `lammps-phpc`, or `mpirun-1.9.0a1` and 
+You may add an alias for `/opt/ompi/bin/mpirun`, as long as it is not `mpirun`.  
+You may add an alias for `/opt/lammps/lammps`, as long as it is not `lammps`.  
+Why not `mpirun-phpc` and `lammps-phpc`, or `mpirun-1.9.0a1` and `lammps-dev`.  
 That's up to you, and more information can be found [here](http://community.linuxmint.com/tutorial/view/891)
