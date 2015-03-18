@@ -25,7 +25,12 @@ make yes-asphere yes-body yes-class2 yes-colloid yes-dipole yes-fld yes-granular
 wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/Makefile.personalhpc" && mv Makefile.personalhpc MAKE/MACHINES/.  # proudly powered by Maximilien Levesque, for PersonalHPC
 make -j personalhpc
 sudo mkdir -p /opt/lammps
-sudo mv lmp_personalhpc /opt/lammps/.
+sudo mv lmp_personalhpc /opt/lammps/lammps
+
+testlammpsdir=/tmp/testlammps
+mkdir -p $testlammpsdir && cd $testlammpsdir
+wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/testlammps.in"
+wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/needed-by-testlammps.in"
 
 echo "... OK. Everything's fine"
 echo "Your LAMMPS executable is /opt/lammps/lammps"
