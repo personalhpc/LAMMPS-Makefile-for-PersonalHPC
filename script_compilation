@@ -4,14 +4,18 @@ echo " Proudly powered by Maximilien Levesque and PersonalHPC "
 echo " Comments, bug-reports : contact@personalhpc.com"
 echo " ==== "
 
+# be sure you have all necessary software
+sudo apt-get install git autoconf automake libtool gfortran g++ flex make -y
+
 # grab last version of openmpi, compile it, and move it to /opt/openmpi/bin and /opt/openmpi/lib
+ici=$PWD
 git clone https://github.com/open-mpi/ompi.git
 cd ompi
 ./autogen.pl
-mkdir build
-cd build
-../configure --prefix=/home/levesque/bin/ompi/build/install --exec-prefix=/home/levesque/bin/ompi/build/install-exec --with-platform=optimized
-make all install
+mkdir _mybuild
+cd _mybuild
+../configure --prefix=/home/levesque/bin/ompi/_mybuild/install --exec-prefix=/home/levesque/bin/ompi/_mybuild/install-exec --with-platform=optimized
+make all install -j8
 sudo mkdir -p /opt/openmpi/lib /opt/openmpi/bin
 sudo cp -rf install-exec/lib/* /opt/openmpi/lib/.
 sudo cp -rf install-exec/bin/* /opt/openmpi/bin/.
