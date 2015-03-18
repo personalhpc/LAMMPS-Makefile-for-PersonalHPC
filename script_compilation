@@ -34,9 +34,8 @@ wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-Personal
 /opt/ompi/bin/mpirun -np 1 /opt/lammps/lammps < lammpstest.in
 
 echo " ==== ==== "
-echo "... OK. Everything's fine"
-echo "All mpi related exec (mpirun, mpif90, mpicc, etc) are in /opt/ompi/bin"
-echo "Your LAMMPS executable is /opt/lammps/lammps"
+echo " All mpi related exec (mpirun, mpif90, mpicc, etc) are in /opt/ompi/bin"
+echo " Your LAMMPS executable is /opt/lammps/lammps"
 echo " ==== "
 echo " Proudly powered by Maximilien Levesque and PersonalHPC "
 echo " Comments, bug-reports : contact@personalhpc.com"
