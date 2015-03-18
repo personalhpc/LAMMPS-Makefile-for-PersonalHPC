@@ -1,0 +1,133 @@
+# Equilibration - SPCE waters
+
+
+units		real
+dimension	3
+boundary 	p p p
+atom_style	full
+
+bond_style      harmonic
+angle_style     harmonic
+
+read_data  needed-by-lammpstest.in
+
+# 1=OW, 2=HW, 3=Al, 4=Mg, 5=Si, 6,7,8=O, 9=H, 10=Na
+group           water type 1 2
+group           wall type 3 4 
+group           cation type 10
+group           mobile type 1 2 10
+group		mall type 1 2 5 6 7 8 9 10
+group           clay type 5 6 7 8 9
+
+# cation= Dang et Smith
+
+pair_style lj/cut/coul/long 12.
+
+#the interactions between Oclay and others remain the same as with spc (determined with this model)
+pair_coeff           1           1  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           1           2   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           1           3   4.5458873721199915E-004   3.7183886703726370  12.0   
+pair_coeff           1           4   3.7459723971220078E-004   4.2149311061072847  12.0   
+pair_coeff           1           5   5.3480248690521257E-004   3.2337842802157684  12.0   
+pair_coeff           1           6  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           1           7  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           1           8  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           1           9   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           1          10  0.14213920641399402        2.7577708290857363  12.0   
+pair_coeff           2           2   0.0000000000000000        0.0000000000000000  12.0   
+pair_coeff           2           3   0.0000000000000000        2.1356179104821815  12.0   
+pair_coeff           2           4   0.0000000000000000        2.6321603386645940  12.0   
+pair_coeff           2           5   0.0000000000000000        1.6510135291280565  12.0   
+pair_coeff           2           6   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           2           7   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           2           8   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           2           9   0.0000000000000000        0.0000000000000000  12.0   
+pair_coeff           2          10   0.0000000000000000        1.1750000887115137  12.0   
+pair_coeff           3           3   1.3298000000000000E-006   4.2712359091969727  12.0   
+pair_coeff           3           4   1.0958023562668588E-006   4.7677783468646808  12.0   
+pair_coeff           3           5   1.5644477939515912E-006   3.7866315169054956  12.0   
+pair_coeff           3           6   4.5458873721199915E-004   3.7183886703726370  12.0   
+pair_coeff           3           7   4.5458873721199915E-004   3.7183886703726370  12.0   
+pair_coeff           3           8   4.5458873721199915E-004   3.7183886703726370  12.0   
+pair_coeff           3           9   0.0000000000000000        2.1356179104821815  12.0   
+pair_coeff           3          10   4.1579718373264626E-004   3.3106180633686204  12.0   
+pair_coeff           4           4   9.0297999999999995E-007   5.2643207860763450  12.0   
+pair_coeff           4           5   1.2891604593688095E-006   4.2831739528928914  12.0   
+pair_coeff           4           6   3.7459723971220078E-004   4.2149311061072847  12.0   
+pair_coeff           4           7   3.7459723971220078E-004   4.2149311061072847  12.0   
+pair_coeff           4           8   3.7459723971220078E-004   4.2149311061072847  12.0   
+pair_coeff           4           9   0.0000000000000000        2.6321603386645940  12.0   
+pair_coeff           4          10   3.4263162405125417E-004   3.8071604974956830  12.0   
+pair_coeff           5           5   1.8405000000000000E-006   3.3020271264673937  12.0   
+pair_coeff           5           6   5.3480248690521257E-004   3.2337842802157684  12.0   
+pair_coeff           5           7   5.3480248690521257E-004   3.2337842802157684  12.0   
+pair_coeff           5           8   5.3480248690521257E-004   3.2337842802157684  12.0   
+pair_coeff           5           9   0.0000000000000000        1.6510135291280565  12.0   
+pair_coeff           5          10   4.8916603009612186E-004   2.8260136750171680  12.0   
+pair_coeff           6           6  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           6           7  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           6           8  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           6           9   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           6          10  0.14213920641399402        2.7577708290857363  12.0   
+pair_coeff           7           7  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           7           8  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           7           9   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           7          10  0.14213920641399402        2.7577708290857363  12.0   
+pair_coeff           8           8  0.15540000000000001        3.1655414340070651  12.0   
+pair_coeff           8           9   0.0000000000000000        1.5827706843076119  12.0   
+pair_coeff           8          10  0.14213920641399402        2.7577708290857363  12.0   
+pair_coeff           9           9   0.0000000000000000        0.0000000000000000  12.0   
+pair_coeff           9          10   0.0000000000000000        1.1750000887115137  12.0   
+pair_coeff          10          10  0.13000999999999999        2.3500002259679116  12.0   
+
+
+bond_coeff      1 554.1349 1.0
+bond_coeff      2 554.1349 1.0
+angle_coeff   	1 45.7696 109.47
+angle_coeff	2 30.0    109.47
+
+kspace_style pppm 0.0001
+dielectric 	1.0
+
+neighbor	2.0 bin
+neigh_modify    delay 0 check yes every 1
+
+timestep	1.0
+run_style 	verlet
+
+
+#------------------NEMD: equilibration and thermalization -----------
+
+#----------COMPUTE------------
+compute         mytemp all temp
+compute         tempwall wall temp
+compute         tempmob mobile temp
+compute         tempeau water temp
+compute 	itemp mall temp
+compute 	tempclay clay temp
+
+
+#-------------------FIX-----------------------
+fix             1 mobile nvt temp 300 300 1000.0
+fix_modify      1 temp tempmob
+fix		2 water shake 0.0001 10 0 b 1 a 1
+fix             3 wall setforce 0.0 0.0 0.0
+fix		4 clay setforce 0.0 0.0 0.0
+
+
+#---------------------VEL---------------------------------------------
+#cree vitesses, ok pour degrés translation et rotation, selon gaussienne
+# avec la temperature donnee par mytemp
+#velocity mobile create $T 4928459 mom yes rot yes dist gaussian temp mytemp
+velocity mobile create 300 4928459 mom yes rot yes dist gaussian temp tempmob
+
+
+
+#------------------------------THERMO--------------------------------------------------
+thermo_style	custom step etotal press evdwl ecoul elong c_mytemp c_tempclay c_tempeau 
+thermo		100
+restart  100000 restart.*.eqB1
+
+dump 1 all atom 100 dump.eqB1.lammpstrj
+
+run 400
