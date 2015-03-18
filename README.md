@@ -1,6 +1,6 @@
-# Makefile.lammps.phpc
+# lammps @ PersonalHPC (PHPC)
 
-What this script does:
+## What this script does:
 - get latest openmpi sources from their git repo
 - compile them to /opt/ompi
 - get latest lammps sources from their git repo
@@ -9,7 +9,9 @@ What this script does:
 Since it uses the /opt dir, it needs to be executed by a sudoer. It will ask for your sudo password once.
 Good practice? NO! :)
 
-Just open a terminal and type :
+## How-to
+
+Open a terminal and type :
 ```bash
 wget 'https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/script_compilation' && sh script_compilation
 ```
