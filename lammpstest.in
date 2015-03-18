@@ -130,4 +130,4 @@ restart  100000 restart.*.eqB1
 
 dump 1 all atom 100 dump.eqB1.lammpstrj
 
-run 400
+run 200
