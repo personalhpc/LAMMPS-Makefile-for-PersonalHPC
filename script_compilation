@@ -14,8 +14,9 @@ cd ompi
 ./autogen.pl
 mkdir _mybuild
 cd _mybuild
-../configure --prefix=/home/levesque/bin/ompi/_mybuild/install --exec-prefix=/home/levesque/bin/ompi/_mybuild/install-exec --with-platform=optimized
-make all install -j8
+#../configure --prefix=$ici/ompi/_mybuild/_myinstall --exec-prefix=$ici/ompi/_mybuild/_myinstall-exec --with-platform=optimized
+../configure --prefix=/opt/ompi --exec-prefix=/opt/ompi
+make all install
 sudo mkdir -p /opt/openmpi/lib /opt/openmpi/bin
 sudo cp -rf install-exec/lib/* /opt/openmpi/lib/.
 sudo cp -rf install-exec/bin/* /opt/openmpi/bin/.
@@ -23,24 +24,16 @@ sudo cp -rf install/include/mpi.h /opt/openmpi/lib/.
 # at this point, we have everything needed in /opt/openmpi
 
 # grab last version of lammps
-git clone https://github.com/lammps/lammps mylammps
-
-cd mylammps/src
-
+git clone https://github.com/lammps/lammps lammps
+cd lammps/src
 # compile packages that you need. This is user-specific. Here that's OK for what I am aware you typically use.
 make yes-asphere yes-body yes-class2 yes-colloid yes-dipole yes-fld yes-granular yes-kspace yes-manybody yes-mc yes-misc yes-molecule yes-mpiio yes-opt yes-peri yes-replica yes-rigid yes-shock yes-snap yes-srd yes-xtc
-
-cd MAKE/MACHINES
-wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/Makefile.personalhpc"   # proudly powered by Maximilien Levesque, for PersonalHPC
-
-cd ../../   # I should be in mylammps/src/
-
+wget "https://raw.githubusercontent.com/personalhpc/LAMMPS-Makefile-for-PersonalHPC/master/Makefile.personalhpc" && mv Makefile.personalhpc MAKE/MACHINES/.  # proudly powered by Maximilien Levesque, for PersonalHPC
 make -j16 personalhpc
-
-mv lmp_personalhpc mylammps
+cd .. && mkdir -p _mybuild && mv src/lmp_personalhpc _mybuild/lammps
 
 echo "... OK. Everything's fine"
-echo "Your LAMMPS executable is `pwd`/mylammps"
+echo "Your LAMMPS executable is $ici/lammps/src/lammps"
 echo "      "
 echo " ==== "
 echo " Proudly powered by Maximilien Levesque and PersonalHPC "
